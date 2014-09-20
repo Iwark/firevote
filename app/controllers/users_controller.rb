@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     ip_address = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
-    user = User.find_by(ip_address: ip_address)
+    user = User.find_by(name: user_params[:name])
     if user
       @user = user
     else
