@@ -1,7 +1,8 @@
 // forked from zarkswerk's "fireworx" http://jsdo.it/zarkswerk/fireworx
 // forked from zarkswerk's "fireworks" http://jsdo.it/zarkswerk/3598
 
-setTimeout(function () {
+$(function(){
+  window.vote = function() {
     var hanabi = {
       // 火花の数
         // particle　quantity
@@ -133,8 +134,8 @@ setTimeout(function () {
   (function () {
     var b = document.body;
     var d = document.documentElement;
-    cvs.width = Math.max(b.clientWidth/2 , b.scrollWidth/2, d.scrollWidth/2, d.clientWidth/2);
-    cvs.height = Math.max(b.clientHeight/2 , b.scrollHeight/2, d.scrollHeight/2, d.clientHeight/2);
+    cvs.width = cvs.elem.width
+    cvs.height = cvs.elem.height
   })();
   cvs.elem.height = cvs.height;
   cvs.elem.width = cvs.width;
@@ -147,7 +148,8 @@ setTimeout(function () {
     ? cvs.elem.getBoundingClientRect().top
     : 0
   ;
-}, 0);
+}
+});
 
 //set window.requestAnimationFrame
 (function (w, r) {

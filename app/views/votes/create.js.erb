@@ -1,0 +1,5 @@
+<% if current_user.votes.count > 0 %>
+  $(".status").html("<%= current_user.name %>さんは「<%= current_user.votes.first.team.name %>」チームに投票しました。投票をやり直すことも出来ます。")
+<% else %>
+  $(".status").html("<font color='red'>自分のチームには投票できません</font>")
+<% end %>

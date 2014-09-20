@@ -1,4 +1,16 @@
-= @user.name
-| さん、ボタンを押して投票してください（未完成）
+canvas#firecanvas style="width: 100%; height: 100%; display:none;" width="400%" height="400%"
 br
-canvas#firecanvas
+p.status
+  = @user.name
+  - if @user.votes.count > 0
+    | さんは「#{@user.votes.first.team.name}」チームに投票しました。投票をやり直すことも出来ます。
+  - else
+    | さん、チームを選んで投票してください
+br
+= form_for @vote, remote: true, html: {class: 'vote-form'} do |f|
+  .row
+    .col-xs-3.col-sm-2 style="line-height: 34px;"
+      = f.label :team_id
+    .col-xs-9.col-sm-10
+      = f.select :team_id, Team.all.map{|t| [t.name, t.id]}, {}, class: 'form-control'
+  = f.submit '投票する', class:"btn btn-primary vote-btn", style: "display:block; margin: 20px auto;"

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'main' => 'main#index', as: :main
 
   resources :users, only: [:create]
+  resources :votes, only: [:create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
