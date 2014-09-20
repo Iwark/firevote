@@ -11,3 +11,5 @@ ja:
       user:
         team_id: チーム
         name: お名前
+      vote:
+        team_id: 投票対象チーム
