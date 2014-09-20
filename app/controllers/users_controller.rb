@@ -6,7 +6,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     ip_address = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
     user = User.find_by(ip_address: ip_address)
-    @user = user if user
+    if user
+      @user = user
+    else
+      @user.ip_address = ip_address
+    end
     if @user.save
       session[:user_id] = @user.id
       redirect_to :main
