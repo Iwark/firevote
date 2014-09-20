@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+
+# モデルの属性名
+ja:
+  attributes:
+
+  activerecord:
+    attributes:
+      user:
+        team_id: チーム
+        name: お名前

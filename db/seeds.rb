@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Team.delete_all
+["ボッチ", "ぎょ", "コケ", "NEETs", "せんたい", "りっちゃんず"].each do |name|
+  Team.create(name: name)
+end

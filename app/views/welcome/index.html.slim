@@ -1,0 +1,13 @@
+.login.mt20
+  = form_for @user do |f|
+    .row
+      .col-xs-3.col-sm-2 style="line-height: 34px;"
+        = f.label :team_id
+      .col-xs-9.col-sm-10
+        = f.select :team_id, Team.all.map{|t| [t.name, t.id]}, {}, class: 'form-control'
+    .row.mt20
+      .col-xs-3.col-sm-2 style="line-height: 34px;"
+        = f.label :name
+      .col-xs-9.col-sm-10
+        = f.text_field :name, class: 'form-control'
+    = f.submit '投票に進む', class: 'btn btn-primary', style: 'display:block; margin: 20px auto;'
