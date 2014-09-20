@@ -3,3 +3,8 @@
 <% else %>
   $(".status").html("<font color='red'>自分のチームには投票できません</font>")
 <% end %>
+$("canvas").attr("width","400%")
+$("canvas").attr("height","400%")
+setTimeout(function(){
+  $("canvas").css("display","none")
+}, 2000);
