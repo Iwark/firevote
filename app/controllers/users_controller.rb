@@ -4,13 +4,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    remoteaddr = 'unknown'
 
-    if request.env['HTTP_X_FORWARDED_FOR']
-      remoteaddr = request.env['HTTP_X_FORWARDED_FOR'].split(",")[0]
-    else
-      remoteaddr = request.env['REMOTE_ADDR'] if request.env['REMOTE_ADDR']
-    end
+    remoteaddr = request.remote_ip
     ip_address = remoteaddr
     user = User.find_by(name: user_params[:name])
     if user
