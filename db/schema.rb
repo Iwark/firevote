@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920145217) do
+ActiveRecord::Schema.define(version: 20140921101306) do
 
   create_table "teams", force: true do |t|
     t.string   "name",       null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140920145217) do
     t.integer  "team_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "comment"
   end
 
   add_index "votes", ["team_id"], name: "index_votes_on_team_id"

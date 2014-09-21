@@ -13,4 +13,9 @@ br
       = f.label :team_id
     .col-xs-9.col-sm-10
       = f.select :team_id, Team.all.map{|t| [t.name, t.id]}, {}, class: 'form-control'
+  .row
+    .col-xs-3.col-sm-2 style="line-height: 34px;"
+      = f.label :comment
+    .col-xs-9.col-sm-10
+      = f.text_area :comment, class: 'form-control'
   = f.submit '投票する', class:"btn btn-primary vote-btn", style: "display:block; margin: 20px auto;"
