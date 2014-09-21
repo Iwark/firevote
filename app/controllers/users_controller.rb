@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       remoteaddr = request.env['REMOTE_ADDR'] if request.env['REMOTE_ADDR']
     end
     ip_address = remoteaddr
-    user = User.find_by(ip_address: remoteaddr)
+    user = User.find_by(name: user_params[:name])
     if user
       @user = user
     else
